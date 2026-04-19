@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glavas Solutions – Digitale Lösungen für kleine Unternehmen</title>
+  <title>Glavas Solutions – Webseiten, IT-Fixes & einfache Systeme</title>
   <style>
     :root{
-      --bg:#f6f7fb;
+      --bg:#f7f8fc;
       --card:#ffffff;
       --text:#1f2937;
       --muted:#6b7280;
       --line:#e5e7eb;
       --accent:#111827;
-      --accent-2:#374151;
-      --soft:#f3f4f6;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,0.06);
-      --max:1100px;
+      --accent-soft:#f3f4f6;
+      --radius:20px;
+      --shadow:0 10px 30px rgba(17,24,39,0.07);
+      --max:1120px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -28,251 +26,79 @@
       color: var(--text);
       line-height: 1.6;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(247,248,252,0.92);
       backdrop-filter: blur(12px);
-      background: rgba(246,247,251,0.88);
-      border-bottom: 1px solid rgba(229,231,235,0.9);
+      border-bottom: 1px solid rgba(229,231,235,0.95);
     }
-
     .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-      gap: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 18px; padding: 16px 0;
     }
-
-    .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .hero {
-      padding: 72px 0 48px;
-    }
-
+    .brand { font-size: 1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 16px; color: var(--muted); font-size: 0.95rem; }
+    .hero { padding: 72px 0 40px; }
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: stretch;
     }
-
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); box-shadow: var(--shadow);
     }
-
-    .hero-card {
-      padding: 40px;
-    }
-
+    .hero-main { padding: 40px; }
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent-2);
-      font-size: 0.9rem;
-      font-weight: 700;
+      display: inline-block; margin-bottom: 14px; padding: 8px 12px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent); font-size: 0.9rem; font-weight: 700;
     }
-
-    h1, h2, h3 {
-      margin: 0 0 14px;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(1.5rem, 2.3vw, 2.2rem);
-    }
-
-    h3 {
-      font-size: 1.15rem;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
+    h1,h2,h3 { margin: 0 0 14px; line-height: 1.2; }
+    h1 { font-size: clamp(2.1rem, 4vw, 3.8rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.5rem, 2.4vw, 2.3rem); }
+    h3 { font-size: 1.15rem; }
+    p { margin: 0 0 14px; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
     .btn {
-      display: inline-block;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-weight: 700;
+      display: inline-block; padding: 14px 18px; border-radius: 12px; font-weight: 700;
       transition: transform 0.15s ease;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: var(--soft);
-      color: var(--accent);
-      border: 1px solid var(--line);
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: grid;
-      gap: 16px;
-    }
-
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--line); }
+    .hero-side { padding: 24px; display: grid; gap: 16px; }
     .mini-box {
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px;
+      background: var(--accent-soft); border: 1px solid var(--line);
+      border-radius: 16px; padding: 18px;
     }
-
-    .mini-box strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--accent);
+    .mini-box strong { display: block; margin-bottom: 6px; color: var(--accent); }
+    section { padding: 18px 0 26px; }
+    .section-head { margin-bottom: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .content-card,.portfolio-card,.contact-card,.about-card,.system-card { padding: 24px; }
+    ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); }
+    li + li { margin-top: 8px; }
+    .tag {
+      display: inline-block; margin-bottom: 12px; padding: 6px 10px; border-radius: 999px;
+      background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent);
+      font-size: 0.84rem; font-weight: 700;
     }
-
-    section {
-      padding: 18px 0 22px;
+    .portfolio-card p strong,.system-card p strong { color: var(--accent); }
+    .portfolio-link {
+      display: inline-block; margin-top: 8px; font-weight: 700; color: var(--accent);
     }
-
-    .section-head {
-      margin-bottom: 20px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .service-card,
-    .portfolio-card,
-    .contact-card,
-    .about-card {
-      padding: 24px;
-    }
-
-    ul {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .portfolio-card .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent-2);
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 6px 10px;
-    }
-
-    .portfolio-card p strong {
-      color: var(--accent);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
+    .contact-list { display: grid; gap: 12px; margin-top: 18px; }
     .contact-item {
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      color: var(--accent-2);
-      font-weight: 700;
+      padding: 14px 16px; border-radius: 12px; background: var(--accent-soft);
+      border: 1px solid var(--line); font-weight: 700; color: var(--accent);
     }
-
-    footer {
-      padding: 36px 0 60px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-
-      .hero-card,
-      .hero-side,
-      .service-card,
-      .portfolio-card,
-      .contact-card,
-      .about-card {
-        padding: 22px;
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+    footer { padding: 34px 0 56px; color: var(--muted); font-size: 0.92rem; }
+    @media (max-width: 920px) {
+      .hero-grid,.grid-3,.grid-2 { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .hero { padding-top: 42px; }
+      .hero-main,.hero-side,.content-card,.portfolio-card,.contact-card,.about-card,.system-card { padding: 22px; }
     }
   </style>
 </head>
@@ -283,6 +109,7 @@
       <nav class="nav-links">
         <a href="#about">Über mich</a>
         <a href="#services">Leistungen</a>
+        <a href="#systems">Systeme</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Kontakt</a>
       </nav>
@@ -292,7 +119,7 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="card hero-card">
+        <div class="card hero-main">
           <span class="eyebrow">Digitale Lösungen für kleine Unternehmen</span>
           <h1>Webseiten, IT-Fixes und einfache Systeme – klar, schnell und ohne Technik-Chaos.</h1>
           <p>
@@ -300,7 +127,8 @@
             online professioneller aufzutreten und mehr Struktur in digitale Abläufe zu bringen.
           </p>
           <p>
-            Mein Fokus liegt auf verständlichen, pragmatischen Lösungen, die im Alltag wirklich helfen.
+            Mein Fokus liegt auf verständlichen, pragmatischen Lösungen, die im Alltag wirklich helfen
+            und nicht unnötig kompliziert werden.
           </p>
 
           <div class="hero-actions">
@@ -319,8 +147,8 @@
             Einfache, klare Seiten für lokale Unternehmen und Selbstständige.
           </div>
           <div class="mini-box">
-            <strong>Business-Struktur</strong>
-            Mehr Übersicht bei Anfragen, Abläufen und digitalen Prozessen.
+            <strong>Systeme & Struktur</strong>
+            Mehr Überblick bei Rechnungen, Anfragen und digitalen Abläufen.
           </div>
         </aside>
       </div>
@@ -354,7 +182,7 @@
         </div>
 
         <div class="grid-3">
-          <article class="card service-card">
+          <article class="card content-card">
             <h3>IT-Fixes</h3>
             <p>Ich behebe kleine technische Probleme schnell und unkompliziert.</p>
             <ul>
@@ -365,7 +193,7 @@
             </ul>
           </article>
 
-          <article class="card service-card">
+          <article class="card content-card">
             <h3>Webseiten</h3>
             <p>Ich erstelle einfache, klare Webseiten für kleine Unternehmen und lokale Dienstleister.</p>
             <ul>
@@ -376,16 +204,42 @@
             </ul>
           </article>
 
-          <article class="card service-card">
-            <h3>Einfache Systeme</h3>
-            <p>Ich helfe dabei, mehr Struktur in Anfragen, Abläufe und Business-Prozesse zu bringen.</p>
+          <article class="card content-card">
+            <h3>Einfache Business-Struktur</h3>
+            <p>Ich helfe dabei, mehr Struktur in Anfragen, Abläufe und digitale Prozesse zu bringen.</p>
             <ul>
               <li>mehr Übersicht</li>
               <li>weniger Chaos</li>
-              <li>einfachere digitale Abläufe</li>
+              <li>einfachere Abläufe</li>
               <li>praxisnahe Lösungen</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems">
+      <div class="container">
+        <div class="section-head">
+          <h2>Systeme & Struktur</h2>
+          <p>Einfache Lösungen für mehr Überblick im Business.</p>
+        </div>
+
+        <div class="card system-card">
+          <span class="tag">Für kleine Unternehmen</span>
+          <h3>Überblick statt Chaos</h3>
+          <p>
+            Viele kleine Unternehmen verlieren den Überblick über Rechnungen,
+            offene Zahlungen, Anfragen oder interne Abläufe.
+          </p>
+          <p>Ich baue einfache Systeme, damit du:</p>
+          <ul>
+            <li>siehst, wer dir noch Geld schuldet</li>
+            <li>Rechnungen sauber verwalten kannst</li>
+            <li>mehr Struktur im Alltag hast</li>
+            <li>digitale Abläufe einfacher organisierst</li>
+          </ul>
+          <p>Keine komplizierte Software – nur das, was du wirklich brauchst.</p>
         </div>
       </div>
     </section>
@@ -394,7 +248,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Portfolio / Beispielprojekte</h2>
-          <p>Beispielhafte Demo-Projekte, um zu zeigen, wie eine Lösung für verschiedene Branchen aussehen kann.</p>
+          <p>Die Karten unten führen direkt zu eigenen Demo-Seiten.</p>
         </div>
 
         <div class="grid-3">
@@ -404,6 +258,7 @@
             <p><strong>Problem:</strong> Keine klare Online-Präsenz, Kunden finden zu wenig Informationen.</p>
             <p><strong>Lösung:</strong> Eine einfache, mobile Website mit Leistungen, Kontakt und schneller Terminmöglichkeit.</p>
             <p><strong>Nutzen:</strong> Bessere Erreichbarkeit, professioneller Auftritt und weniger Hürden für neue Kunden.</p>
+            <a class="portfolio-link" href="friseur-demo.html">Demo ansehen →</a>
           </article>
 
           <article class="card portfolio-card">
@@ -412,6 +267,7 @@
             <p><strong>Problem:</strong> Leistungen und Kontaktmöglichkeiten sind online nicht klar sichtbar.</p>
             <p><strong>Lösung:</strong> Strukturierte Website mit Services, Anfragebereich und seriösem Gesamtauftritt.</p>
             <p><strong>Nutzen:</strong> Mehr Vertrauen, klarere Kommunikation und bessere Sichtbarkeit für Interessenten.</p>
+            <a class="portfolio-link" href="kfz-demo.html">Demo ansehen →</a>
           </article>
 
           <article class="card portfolio-card">
@@ -420,6 +276,7 @@
             <p><strong>Problem:</strong> Keine einfache Möglichkeit, Leistungen schnell online zu verstehen.</p>
             <p><strong>Lösung:</strong> Klare Service-Seite mit Angebotsübersicht, Kontakt und einfacher Anfrageoption.</p>
             <p><strong>Nutzen:</strong> Schnellere Kontaktaufnahme, mehr Klarheit und professioneller Eindruck.</p>
+            <a class="portfolio-link" href="reinigung-demo.html">Demo ansehen →</a>
           </article>
         </div>
       </div>
@@ -433,7 +290,7 @@
         </div>
 
         <div class="grid-2">
-          <div class="card service-card">
+          <div class="card content-card">
             <ul>
               <li>direkte Kommunikation</li>
               <li>verständliche Lösungen statt Fachsprache</li>
@@ -442,7 +299,7 @@
             </ul>
           </div>
 
-          <div class="card service-card">
+          <div class="card content-card">
             <ul>
               <li>keine unnötig komplizierten Tools</li>
               <li>klare Struktur statt Chaos</li>
@@ -462,14 +319,12 @@
         </div>
 
         <div class="card contact-card">
-          <p>
-            Ich schaue mir kurz an, was du brauchst, und melde mich mit einer klaren Einschätzung zurück.
-          </p>
+          <p>Ich schaue mir kurz an, was du brauchst, und melde mich mit einer klaren Einschätzung zurück.</p>
 
           <div class="contact-list">
-            <div class="contact-item">E-Mail:support@glavas-solutions</div>
-            <div class="contact-item">WhatsApp / Telefon: +43 660 503 504</div>
-            <div class="contact-item">Standort: Niederösterreich / remote möglich</div>
+            <div class="contact-item">E-Mail: support@glavas-solutions.com</div>
+            <div class="contact-item">WhatsApp / Telefon: +43 660 503 0504</div>
+            <div class="contact-item">Standort: Wien / remote möglich</div>
           </div>
         </div>
       </div>
